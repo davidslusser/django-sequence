@@ -4,7 +4,7 @@ from django.db import migrations
 
 def populate_stage_states(apps, schema_editor):
     """ populate StageState values """
-    StageState = apps.get_model('django_sequences', 'StageState')
+    StageState = apps.get_model('django_sequence', 'StageState')
     data_list = [{'name': 'pending', 
                  'description': 'activity on this stage is expected but has not yet started'},
                  {'name': 'started', 
@@ -21,7 +21,7 @@ def populate_stage_states(apps, schema_editor):
 
 def populate_stage_results(apps, schema_editor):
     """ populate StageResult values """
-    StageResult = apps.get_model('django_sequences', 'StageResult')
+    StageResult = apps.get_model('django_sequence', 'StageResult')
     data_list = [{'name': 'success', 
                  'description': 'stage completed successfully with no issues'},
                  {'name': 'fail', 
@@ -39,7 +39,7 @@ def populate_stage_results(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('django_sequences', '0001_initial'),
+        ('django_sequence', '0001_initial'),
     ]
 
     operations = [

@@ -122,6 +122,8 @@ class Sequence(models.Model):
     def stages(self):
         return self.get_stages()
 
+    completion = property(get_completion_percentage)
+
 
 class Stage(models.Model):
     """ individual stage(s) for a model_sequence item; identifies where in the overall model_sequence a thing is; 
@@ -148,7 +150,7 @@ class Stage(models.Model):
         return self.name
 
     def get_duration(self):
-        """ """
+        """ return the time delta between created_at and updated_at timestamps """
         return self.updated_at - self.created_at
 
     def update_sequence(self):

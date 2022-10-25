@@ -1,1 +1,1 @@
-# django-sequences
+# django-sequence

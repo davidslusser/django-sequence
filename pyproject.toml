@@ -28,7 +28,7 @@ markers = [
 
 [tool.coverage.run]
 branch = true
-source = ["django-sequences"]
+source = ["django-sequence"]
 omit = ["*_test.py", "*/test/*"]
 
 
