@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.utils import OperationalError
-from django_sequences.models import Sequence
+from django_sequence.models import Sequence
 
 
 def get_sequence_object():

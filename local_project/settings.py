@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'local_project.apps.TestAppConfig',
-    'django_sequences',
+    'django_sequence',
 ]
 
 MIDDLEWARE = [

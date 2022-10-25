@@ -1,6 +1,6 @@
 from telnetlib import SE
 from django.db import models
-from django_sequences.fields import SequenceField
+from django_sequence.fields import SequenceField
 
 
 class Product(models.Model):

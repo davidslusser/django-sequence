@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # import models
-from django_sequences.models import (StageState, StageResult, Sequence, Stage)
+from django_sequence.models import (StageState, StageResult, Sequence, Stage)
 
 
 class StageResultAdmin(admin.ModelAdmin):

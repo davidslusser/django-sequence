@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import django_sequences.models
+import django_sequence.models
 
 
 class Migration(migrations.Migration):
@@ -61,9 +61,9 @@ class Migration(migrations.Migration):
                 ('blocking', models.BooleanField(default=True, help_text='if True, do not continue to next stage if a failure or error occurs')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('result', models.ForeignKey(default=django_sequences.models.get_default_stage_result, help_text='outcome of model_sequence stage', on_delete=django.db.models.deletion.CASCADE, to='django_sequences.stageresult')),
+                ('result', models.ForeignKey(default=django_sequence.models.get_default_stage_result, help_text='outcome of model_sequence stage', on_delete=django.db.models.deletion.CASCADE, to='django_sequences.stageresult')),
                 ('sequence', models.ForeignKey(help_text='model_sequence this stage belongs to', on_delete=django.db.models.deletion.CASCADE, to='django_sequences.sequence')),
-                ('state', models.ForeignKey(default=django_sequences.models.get_default_stage_state, help_text='current activity of model_sequence stage', on_delete=django.db.models.deletion.CASCADE, to='django_sequences.stagestate')),
+                ('state', models.ForeignKey(default=django_sequence.models.get_default_stage_state, help_text='current activity of model_sequence stage', on_delete=django.db.models.deletion.CASCADE, to='django_sequences.stagestate')),
             ],
             options={
                 'ordering': ['order'],
