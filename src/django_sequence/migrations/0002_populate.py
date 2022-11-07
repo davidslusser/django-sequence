@@ -2,26 +2,27 @@
 
 from django.db import migrations
 
-def populate_stage_states(apps, schema_editor):
-    """ populate StageState values """
-    StageState = apps.get_model('django_sequences', 'StageState')
+def populate_states(apps, schema_editor):
+    """ populate State values """
+    State = apps.get_model('django_sequence', 'State')
     data_list = [{'name': 'pending', 
                  'description': 'activity on this stage is expected but has not yet started'},
                  {'name': 'started', 
                  'description': 'activity on this stage has started'},
+                 {'name': 'paused', 
+                 'description': 'activity on this stage has started, but been purposely paused before completion'},
                  {'name': 'completed', 
                  'description': 'activity on this stage has completed'},
                  {'name': 'blocked', 
                  'description': 'activity on this stage is blocked by a previous stage'},
                  ]
     for data in data_list:
-        StageState.objects.get_or_create(name=data['name'], description=data['description'], 
-        defaults=data)
+        State.objects.get_or_create(name=data['name'], defaults=data)
 
 
-def populate_stage_results(apps, schema_editor):
-    """ populate StageResult values """
-    StageResult = apps.get_model('django_sequences', 'StageResult')
+def populate_results(apps, schema_editor):
+    """ populate Result values """
+    Result = apps.get_model('django_sequence', 'Result')
     data_list = [{'name': 'success', 
                  'description': 'stage completed successfully with no issues'},
                  {'name': 'fail', 
@@ -32,17 +33,16 @@ def populate_stage_results(apps, schema_editor):
                  'description': 'stage has not completed, or completion can not be determined'},
                  ]
     for data in data_list:
-        StageResult.objects.get_or_create(name=data['name'], description=data['description'], 
-        defaults=data)
+        Result.objects.get_or_create(name=data['name'], defaults=data)
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('django_sequences', '0001_initial'),
+        ('django_sequence', '0001_initial'),
     ]
 
     operations = [
-        migrations.RunPython(populate_stage_states),
-        migrations.RunPython(populate_stage_results),
+        migrations.RunPython(populate_states),
+        migrations.RunPython(populate_results),
     ]

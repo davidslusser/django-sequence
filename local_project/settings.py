@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'local_project.apps.TestAppConfig',
-    'django_sequences',
+    'django_sequence',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'django_sequences.sqlite3',
+        'NAME': 'django_sequence.sqlite3',
     },
 }
 
