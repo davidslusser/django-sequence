@@ -1,15 +1,15 @@
 from django.contrib import admin
 
 # import models
-from django_sequence.models import (StageState, StageResult, Sequence, Stage)
+from django_sequence.models import (State, Result, Sequence, Stage)
 
 
-class StageResultAdmin(admin.ModelAdmin):
+class ResultAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "description")
     search_fields = ["name", "description"]
 
 
-class StageStateAdmin(admin.ModelAdmin):
+class StateAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "description")
     search_fields = ["name", "description"]
 
@@ -24,7 +24,7 @@ class StageAdmin(admin.ModelAdmin):
     list_filter = ["result", "state", "blocking"]
 
 
-admin.site.register(StageResult, StageResultAdmin)
-admin.site.register(StageState, StageStateAdmin)
+admin.site.register(Result, ResultAdmin)
+admin.site.register(State, StateAdmin)
 admin.site.register(Sequence, SequenceAdmin)
 admin.site.register(Stage, StageAdmin)
